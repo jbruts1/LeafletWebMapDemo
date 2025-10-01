@@ -21,7 +21,7 @@ var radar = L.tileLayer.wms(radarUrl, radarDisplayOptions).addTo(map);
 //add alerts layer
 var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?region_type=land';
 $.getJSON(weatherAlertsUrl, function(data) {
-  console.log("Alert severities found:",
+  console.log("Alert severities found:", //a console alert was added since there were any extreme or minor alerts at the time I made this.
     [...new Set(data.features.map(f=>f.properties.severity))]);
     //L.geoJSON(data).addTo(map);
     L.geoJSON(data, {
