@@ -1,6 +1,12 @@
 var map = L.map('weathermap').setView([38, -95], 4);
-var basemapUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-var basemap =  L.tileLayer(basemapUrl, {attribution: '&copy; <a href="http://' + 'www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+//New Basemap
+var basemapUrl = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+var basemapAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>';
+var basemap =  L.tileLayer(basemapUrl, {
+  attribution: basemapAttrib,
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map)
 
 
 //add the national precipitation radar layer
@@ -20,6 +26,8 @@ $.getJSON(weatherAlertsUrl, function(data) {
         style: function(feature){
             var alertColor = 'orange';
             if (feature.properties.severity === 'Severe') alertColor = 'red';
+            if (feature.properties.severity === 'Extreme') alertColor = 'purple';
+            if (feature.properties.severity === 'Minor') alertColor = 'yellow';
             return { color: alertColor };
           },
             onEachFeature: function(feature, layer) {
