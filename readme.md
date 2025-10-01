@@ -6,7 +6,7 @@ A map showing real-time weather radar and alerts from the National Weather Servi
 <https://jbruts1.github.io/LeafletWebMapDemo/weather>
 
 A map showing earthquake data from USGS.
-<https://jbruts1.github.io/LeafletWebMapDemo/earthquake>
+<https://jbruts1.github.io/LeafletWebMapDemo/earthquake/index.html>
 
 ## Weather Map
 The weather map uses:
